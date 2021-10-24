@@ -13,6 +13,5 @@
       "*": ["node_modules/*", "src/types/*"]
     },
     "typeRoots": ["./custom_typings", "./node_modules/@types"]
-  },
-  "include": ["**/*"]
+  }
 }

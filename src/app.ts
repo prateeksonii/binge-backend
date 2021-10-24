@@ -1,7 +1,6 @@
-import Express from "express";
-import { logger } from "express-winston";
-import { transports } from "winston";
-import loggerConfig from "./configs/loggerConfig";
+import Express from 'express';
+import { logger } from 'express-winston';
+import loggerConfig from './configs/loggerConfig';
 
 const app = Express();
 
