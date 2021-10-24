@@ -1,0 +1,15 @@
+{
+  "name": "binge-api",
+  "version": "0.0.0",
+  "description": "Rest API for Binge app",
+  "main": "index.js",
+  "author": "Prateek Soni",
+  "license": "MIT",
+  "scripts": {
+    "compile": "tsc -w",
+    "dev": "nodemon dist/index.js"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.14"
+  }
+}
