@@ -1,6 +1,9 @@
-import app from "./src/app";
+import dotenv from 'dotenv';
+dotenv.config({});
 
-const port: string = process.env.PORT ?? "4000";
+import app from './src/app';
+
+const port: string = process.env.PORT ?? '4000';
 
 // Start server to listen
 app.listen(port, () => console.log(`Listening at port ${port}`));

@@ -5,9 +5,10 @@ export const notFound: RequestHandler = (req, res, next) => {
   return next(new Error('Route not found'));
 };
 
-export const errorHandler: ErrorRequestHandler = (err: Error, req, res, next) => {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export const errorHandler: ErrorRequestHandler = (err: Error, req, res, _next) => {
   if (res.statusCode === 200) res.status(500);
-
+  console.log(err);
   return res.json({
     ok: false,
     error: {
