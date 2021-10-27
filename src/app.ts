@@ -1,4 +1,5 @@
 import Express from 'express';
+import cors from 'cors';
 import { logger } from 'express-winston';
 import loggerConfig from './configs/loggerConfig';
 import { errorHandler, notFound } from './middlewares';
@@ -8,6 +9,8 @@ const app = Express();
 
 // add logger
 app.use(logger(loggerConfig));
+
+app.use(cors());
 
 // Middlewares to accept request body
 app.use(Express.json());
