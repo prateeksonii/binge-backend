@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { BannerResponse, Genres, Movies } from '../types';
+import { Movie, Genres, Movies, MovieDetail } from '../types';
 
 const baseURL = 'https://api.themoviedb.org/3';
 
@@ -27,7 +27,7 @@ const getBannerMovie = async (page: number) => {
     },
   });
 
-  const banner: BannerResponse = response.data.results[0];
+  const banner: Movie = response.data.results[0];
   const genresResponse = await tmdbApi.get<Genres>('/genre/movie/list');
 
   const genres = genresResponse.data.genres.filter((genre) => banner.genre_ids.includes(genre.id));
@@ -37,7 +37,14 @@ const getBannerMovie = async (page: number) => {
   return banner;
 };
 
+const getMovieDetail = async (movieId: number) => {
+  const response = await tmdbApi.get<MovieDetail>(`/movie/${movieId}`);
+
+  return response.data;
+};
+
 export default {
   getPopularMovies,
   getBannerMovie,
+  getMovieDetail,
 };
