@@ -16,6 +16,48 @@ export const getPopularMovies: RequestHandler = async (req, res, next) => {
   }
 };
 
+export const getTopRatedMovies: RequestHandler = async (req, res, next) => {
+  try {
+    const { page = 1 }: { page?: number } = req.query;
+    const movies = await tmdb.getTopRatedMovies(page);
+
+    res.json({
+      ok: true,
+      movies,
+    });
+  } catch (err) {
+    return next(err);
+  }
+};
+
+export const getUpcomingMovies: RequestHandler = async (req, res, next) => {
+  try {
+    const { page = 1 }: { page?: number } = req.query;
+    const movies = await tmdb.getUpcomingMovies(page);
+
+    res.json({
+      ok: true,
+      movies,
+    });
+  } catch (err) {
+    return next(err);
+  }
+};
+
+export const getNowPlayingMovies: RequestHandler = async (req, res, next) => {
+  try {
+    const { page = 1 }: { page?: number } = req.query;
+    const movies = await tmdb.getNowPlayingMovies(page);
+
+    res.json({
+      ok: true,
+      movies,
+    });
+  } catch (err) {
+    return next(err);
+  }
+};
+
 export const getBannerMovie: RequestHandler = async (req, res, next) => {
   try {
     const { page = 1 }: { page?: number } = req.query;

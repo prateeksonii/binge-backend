@@ -20,6 +20,36 @@ const getPopularMovies = async (page: number) => {
   return response.data.results;
 };
 
+const getTopRatedMovies = async (page: number) => {
+  const response = await tmdbApi.get<Movies>('/movie/top_rated', {
+    params: {
+      page,
+    },
+  });
+
+  return response.data.results;
+};
+
+const getUpcomingMovies = async (page: number) => {
+  const response = await tmdbApi.get<Movies>('/movie/upcoming', {
+    params: {
+      page,
+    },
+  });
+
+  return response.data.results;
+};
+
+const getNowPlayingMovies = async (page: number) => {
+  const response = await tmdbApi.get<Movies>('/movie/now_playing', {
+    params: {
+      page,
+    },
+  });
+
+  return response.data.results;
+};
+
 const getBannerMovie = async (page: number) => {
   const response = await tmdbApi.get<Movies>('/movie/popular', {
     params: {
@@ -47,4 +77,7 @@ export default {
   getPopularMovies,
   getBannerMovie,
   getMovieDetail,
+  getTopRatedMovies,
+  getNowPlayingMovies,
+  getUpcomingMovies,
 };
